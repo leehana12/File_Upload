@@ -12,8 +12,8 @@ public class FileDAO {
 		
 		try { // 데이터 베이스 연동
 			String dbURL = "jdbc:mysql://localhost:3306/file";
-			String dbID = "root";
-			String dbPassword = "12345";
+			String dbID = "namode77";
+			String dbPassword = "1234";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
@@ -21,8 +21,9 @@ public class FileDAO {
 		}
 	}
 
-	public int uploae(String fileName, String fileRealName) {
-		String SQL = "insert into file valuse(?,?)";
+	// 데이터베이스에 저장
+	public int upload(String fileName, String fileRealName) {
+		String SQL = "insert into file values(?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);// Statement=SQL구문실행 역할 -> PreparedStatement는 Statement클래스의 기능 향상
 			pstmt.setString(1, fileName);
